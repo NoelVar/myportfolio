@@ -144,8 +144,8 @@ nav.scrolled a:hover {
 .hero-image img {
     filter: grayscale(100%);
     opacity: 80%;
-    animation-name: me-move;
-    animation-duration: 3s;
+    /*animation-name: me-move;
+    animation-duration: 3s;*/
 }
 
 /*
