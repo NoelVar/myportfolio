@@ -1,0 +1,504 @@
+/*
+    SETTING THE SCROLLING TO SMOOTH
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*
+    CREATING VARIABLES FOR COLOUR THEME
+*/
+:root {
+    --background-colour: black;
+    --dark-background: black;
+    --highlight-colour: rgb(255, 242, 198);
+    --text-colour: #FFFFFF;
+    --not-selected: #ffffff70;
+    --scroll-background: #000000;
+}
+
+
+/*
+    SETTING THE BACKGROUND, BORDER, FONT AND REMOVING MARGIN AND PADDING
+*/
+body {
+    background-color: var(--background-colour);
+        background-image:
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(rgba(255, 255, 255, 0.753), rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(rgba(255, 255, 255, 0.356), rgba(255,255,255,.1) 2px, transparent 40px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+        background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+        background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    color: var(--text-colour);
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--highlight-colour);
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.1em;
+}
+
+
+/*
+    CREATING KEYFRAMES TO ANIMATE HERO IMAGE AND EYE-CATCHER TEXT
+*/
+@keyframes me-move {
+    0% {
+        margin-top: 1000px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes text-move {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*
+    FIXING THE NAV BAR TO THE TOP, SIZING AND LAYERING IT OVER EVERYTHING, ADDING TRANSITION FOR SCROLLING EFFECT
+*/
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    transition: background .4s ease-in-out;
+}
+
+/*
+    CREATING THE SCROLLED CLASS WHICH CHANGES THE BACKGROUND COLOUR AND OPACITY ON THE NAV BAR
+*/
+nav.scrolled {
+    background-color: var(--scroll-background);
+    opacity: 90%;
+}
+
+/*
+    POSITIONING NAVIGATION BAR ELEMENTS AND REMOVING BULLET POINT
+*/
+nav > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+}
+
+/*
+    POSITIONING MENU POOINTS
+*/
+nav li {
+    margin: 0 40px;
+    padding: 10px;
+}
+
+/*
+    STYLING NAVIGATION LINKS
+*/
+nav a {
+    font-weight: 600;
+    color: var(--not-selected);
+    text-decoration: none;
+}
+
+/*
+    CHANGING NAVIGATION LINK STYLING ON SCROLL
+*/
+nav.scrolled a {
+    color: var(--highlight-colour);
+}
+/*
+    ADDING HOVER EFFECT TO THE LINKS
+*/
+nav a:hover {
+    color: var(--highlight-colour);
+}
+
+/*
+    CHANGING HOVER EFFECT ON SCROLL
+*/
+nav.scrolled a:hover {
+    color: var(--text-colour);
+}
+
+/*
+    STYLING THE HERO-IMAGE DIV
+*/
+.hero-image {
+    margin-top: 5rem;
+    background-color: var(--dark-background);
+    border-bottom: 1px solid var(--highlight-colour);
+    border-top: 1px solid var(--highlight-colour);
+    height: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10rem;
+    overflow: hidden;
+}
+
+/*
+    STYLING THE IMAGE OF ME
+*/
+.hero-image img {
+    opacity: 80%;
+    animation-name: me-move;
+    animation-duration: 3s;
+    filter: grayscale(80%) sepia(.8) drop-shadow(5px 5px 20px rgb(0, 168, 168)); 
+}
+
+/*
+    STYLING MAIN TEXT
+*/
+.call-to-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: text-move;
+    animation-duration: 1s;
+}
+
+.call-to-action p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.call-to-action b {
+    color: var(--highlight-colour);
+    font-size: 2em;
+}
+
+.call-to-action a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: var(--highlight-colour);
+    border: 2px solid var(--highlight-colour);
+    box-shadow: 3px 5px var(--highlight-colour);
+    border-radius: 10px;
+    text-align: center;
+    width: 8em;
+    transition: .2s ease;
+}
+
+.call-to-action a:hover {
+    color: var(--text-colour);
+    border: 2px solid var(--text-colour);
+    box-shadow: none;
+    transition: .2s ease;
+}
+
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 1.5px solid var(--highlight-colour);
+    border-radius: 10px;
+    width: 50%;
+}
+
+/*
+    STYLING ABOUT ME
+*/
+.about-me, .contact-me {
+    margin: 5em 10em;
+}
+
+.about-me h3, .about-me p {
+    margin: 0;
+}
+
+.about-me hr , .contact-me hr{
+    display: inline-block;
+    margin: 3px 0;
+    width: 3em;
+    border: 1.5px solid var(--highlight-colour);
+    border-radius: 10px;
+}
+
+/*
+    STYLING SKILLS
+*/
+.skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-box {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    font-size: 15px;
+    background-color: var(--dark-background);
+    border: 2px solid var(--not-selected);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: sepia(.8) drop-shadow(2px 2px 10px rgb(0, 168, 168));
+}
+
+.skill-box img {
+    width: 50px;
+    height: 50px;
+}
+
+.about-me h4 {
+    text-align: center;
+}
+
+/*
+    STYLING EDUCATION
+*/
+.education {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.education-box {
+    width: 400px;
+    height: 600px;
+    background-color: var(--dark-background);
+    border: 1px solid var(--not-selected);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(2px 2px 5px rgb(0, 168, 168));
+}
+
+.education-box img {
+    width: 300px;
+    height: 300px;
+    filter: sepia(.8);
+}
+
+.education-box a {
+    color: var(--highlight-colour);
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid var(--highlight-colour);
+    box-shadow: 3px 5px var(--highlight-colour);
+    transition: .2s ease;
+}
+
+.education-box a:hover {
+    color: var(--text-colour);
+    border: 2px solid var(--text-colour);
+    box-shadow: none;
+    transition: .2s ease;
+}
+
+.education-text {
+    width: 300px;
+}
+
+/*
+    STYLING PROJECTS
+*/
+.projects {
+    width: 100%;
+    background-color: var(--dark-background);
+    border: 1px solid var(--not-selected);
+    text-align: center;
+    filter: drop-shadow(2px 2px 10px rgb(0, 168, 168));
+}
+
+.projects h4 {
+    margin-bottom: 0;
+}
+
+.projects h5 {
+    margin-top: 0;
+}
+
+.projects img {
+    width: 80%;
+    border: 1px solid var(--not-selected);
+    filter: sepia(.8);
+}
+
+.projects p {
+    margin: 2rem 5rem;
+    text-align: justify;
+}
+
+.projects a {
+    color: var(--highlight-colour);
+}
+
+/*
+    STYLING CONTACT ME
+*/
+.message {
+    color: var(--highlight-colour);
+    border: 2px solid var(--highlight-colour);
+    border-radius: 10px;
+    box-shadow: 3px 5px var(--highlight-colour);
+    padding: 10px;
+    text-decoration: none;
+    
+}
+
+.message:hover {
+    color: var(--text-colour);
+    border: 2px solid var(--text-colour);
+    box-shadow: none;
+    transition: .2s ease;
+}
+
+.contact-content {
+    text-align: center;
+}
+
+.contact-me img {
+    width: 50px;
+    height: 50px;
+    margin-top: 2rem;
+    transition: .5s;
+}
+
+.contact-me img:hover {
+    transform: scale(1.2);
+    transition: .5s;
+}
+
+/*
+    STYLING FOOTER
+*/
+.footer {
+    text-align: center;
+    background-color: var(--dark-background);
+    padding: 1rem;
+    border-top: 1px solid var(--highlight-colour);
+}
+
+.footer a {
+    color: var(--highlight-colour);
+}
+
+.footer p {
+    margin: 0;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+/*
+    ADDING ADITIONAL DEVICE VIEWS
+*/
+
+/*TABLET VIEW*/
+@media only screen and (max-width: 1050px) {
+    .hero-image {
+        width: 100%;
+        height: 15rem;
+        overflow: hidden;
+        gap: 3rem;
+    }
+    
+
+    .call-to-action {
+        font-size: 10px;
+    }
+
+    .about-me, .contact-me {
+        margin: 5em 5em;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    nav {
+        font-size: 18px;
+    }
+
+    nav li {
+        margin: 0 20px;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 15rem;
+        overflow: hidden;
+        gap: 1rem;
+    }
+
+    .call-to-action {
+        font-size: 10px;
+    }
+
+    .about-me, .contact-me {
+        margin: 5em 1em;
+        text-align: justify;
+    }
+
+    .projects img {
+        width: 90%;
+    }
+
+    .projects p {
+        margin: 2rem 2rem;
+    }
+
+    .contact-content {
+        font-size: 15px;
+    }
+}
+
+/*MOBILE VIEW*/
+@media only screen and (max-width: 500px) {
+    nav {
+        font-size: 15px;
+    }
+
+    nav li {
+        margin: 0 20px;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 20rem;
+        overflow: hidden;
+        gap: 1rem;
+    }
+
+    .hero-image img {
+        display: none;
+    }
+
+    .call-to-action {
+        font-size: 10px;
+    }
+
+    .about-me, .contact-me {
+        margin: 5em 1em;
+        text-align: justify;
+    }
+
+    .projects img {
+        width: 90%;
+    }
+
+    .projects p {
+        margin: 2rem 2rem;
+    }
+
+    .contact-content {
+        font-size: 15px;
+    }
+}
